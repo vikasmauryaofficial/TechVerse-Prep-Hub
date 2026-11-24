@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechVerse by Nexora – Tech Hiring Guide</title>
+<style>
+:root{--bg:#0e1a2b;--panel:#15263d;--ink:#eaf1f8;--mute:#9db0c6;--line:#27405e;--acc:#2ee6c5;--acc2:#ffb347}
+@media (prefers-color-scheme:light){:root{--bg:#f3f7fb;--panel:#fff;--ink:#12233a;--mute:#52667f;--line:#d3deea;--acc:#007a68;--acc2:#b25e00}}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 "Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:48px 5vw 28px;border-bottom:1px solid var(--line)}
+h1{font:800 clamp(34px,6vw,64px)/1.05 Georgia,"Times New Roman",serif;margin:0 0 10px;letter-spacing:-1px}
+h1 span{color:var(--acc)}
+header p{max-width:62ch;color:var(--mute);margin:0 0 6px}
+.by{font-size:14px;color:var(--acc2)}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 5vw;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+input,select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 12px;font:inherit}
+input{flex:1 1 220px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:12px 5vw 0}
+button.chip{background:none;color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer;font:inherit}
+button.chip.on{background:var(--acc);color:#04201b;border-color:var(--acc)}
+main{padding:18px 5vw 40px}
+.count{color:var(--mute);margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;text-align:left;color:inherit;font:inherit}
+.card:hover,.card:focus-visible{border-color:var(--acc);outline:none}
+.card h3{margin:0 0 4px;font-size:19px}
+.tag{font-size:13px;color:var(--acc2)}
+.card p{margin:8px 0;color:var(--mute);font-size:14px}
+.deg{display:flex;gap:6px;flex-wrap:wrap}
+.deg i{font-style:normal;font-size:12px;border:1px solid var(--line);border-radius:5px;padding:1px 7px}
+.rd{font-size:13px;color:var(--acc)}
+dialog{width:min(720px,94vw);max-height:90vh;background:var(--panel);color:var(--ink);border:1px solid var(--acc);border-radius:14px;padding:24px}
+dialog::backdrop{background:#000a}
+dialog h2{margin:0 0 4px;font:700 28px Georgia,serif}
+dialog h4{margin:18px 0 6px;color:var(--acc)}
+ol,ul{margin:0;padding-left:22px}
+li{margin:4px 0}
+.x{float:right;background:var(--acc);color:#04201b;border:0;border-radius:8px;padding:6px 14px;cursor:pointer;font:600 14px inherit}
+.road{margin:0 5vw 40px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+.road h2{margin-top:0;font-family:Georgia,serif}
+footer{padding:26px 5vw;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+<h1>TechVerse <span>by Nexora</span></h1>
+<p>Which tech companies hire B.Tech, MCA, BCS/BCA and BSc CS freshers: roles, number of rounds, and what each round asks. Covers IT services, product companies, gaming, design and cybersecurity.</p>
+<p class="by">Made by Vikas Maurya Academy &amp; Vikas Coding School
+<a href="https://www.youtube.com/@VikasMauryaAcademy" target="_blank" rel="noopener" title="Vikas Maurya Academy on YouTube" style="margin-left:10px;color:inherit;text-decoration:none"><svg width="24" height="17" viewBox="0 0 24 17" style="vertical-align:middle"><rect width="24" height="17" rx="5" fill="#f00"/><path d="M9.5 4.5v8l7-4z" fill="#fff"/></svg> Academy</a>
+<a href="https://www.youtube.com/@VikasCodingSchool" target="_blank" rel="noopener" title="Vikas Coding School on YouTube" style="margin-left:10px;color:inherit;text-decoration:none"><svg width="24" height="17" viewBox="0 0 24 17" style="vertical-align:middle"><rect width="24" height="17" rx="5" fill="#f00"/><path d="M9.5 4.5v8l7-4z" fill="#fff"/></svg> Coding School</a>
+<a href="techverse-prep.html" style="margin-left:10px;color:var(--acc);font-weight:700">Open Prep Hub: topics, HR Q&amp;A, practice</a></p>
+</header>
+<div class="bar">
+<input id="q" type="search" placeholder="Search company, role or topic (e.g. DSA, Unity, SOC)">
+<select id="deg"><option value="">All degrees</option><option value="bt">B.Tech / BE</option><option value="mca">MCA</option><option value="bcs">BCS / BCA</option><option value="bsc">BSc Computer Science</option></select>
+</div>
+<div class="chips" id="chips"></div>
+<main><p class="count" id="count"></p><div class="grid" id="grid"></div></main>
+<section class="road">
+<h2>Common fresher hiring flow</h2>
+<ol>
+<li><b>Application or campus drive:</b> resume shortlisting, usually with a minimum CGPA or percentage cut-off (often 60%).</li>
+<li><b>Online assessment:</b> aptitude, logical reasoning, verbal and basic coding (1 to 3 hours).</li>
+<li><b>Technical interview:</b> your projects, DSA, one core language, DBMS, OS, networks.</li>
+<li><b>Managerial or HR round:</b> communication, relocation, bond or notice terms, salary talk.</li>
+<li><b>Offer and onboarding:</b> documents check, background verification, joining training.</li>
+</ol>
+</section>
+<footer><b>TechVerse by Nexora</b> · Made by <b>Vikas Maurya Academy</b> and <b>Vikas Coding School</b>. Hiring processes change every year and differ by role and college. Treat this as a preparation guide and confirm eligibility, rounds and dates on each company's official careers page.</footer>
+
+<dialog id="dlg"><button class="x" id="close">Close</button><div id="body"></div></dialog>
+
+<script>
+const T={bt:"B.Tech/BE",mca:"MCA",bcs:"BCS/BCA",bsc:"BSc CS"};
+const C=["IT Services","Product & Big Tech","Gaming","Design & UX","Cybersecurity"];
+const D=[
+// n, cat, about, deg, roles, rounds[], topics, tip
+["TCS","IT Services","India's largest IT services firm. Hires through the National Qualifier Test (NQT) and campus drives.","bt,mca,bcs,bsc","Assistant System Engineer, Digital, Prime",["NQT online test (aptitude, verbal, reasoning, coding)","Technical interview","Managerial interview","HR interview"],"Aptitude, C/C++/Java/Python basics, SQL, OOP, project discussion","Digital and Prime roles need stronger coding; practise 2 to 3 medium problems."],
+["Infosys","IT Services","Global consulting and IT major. Fresher hiring via campus and the InfyTQ / HackWithInfy programs.","bt,mca,bcs,bsc","Systems Engineer, Specialist Programmer, Digital Specialist Engineer",["Online assessment (reasoning, maths, pseudocode, coding)","Technical interview","HR interview"],"Pseudocode, OOP, DBMS, SQL, DSA (for Specialist Programmer)","HackWithInfy rankings unlock higher-paid roles."],
+["Wipro","IT Services","IT and consulting company hiring through its Elite National Talent Hunt.","bt,mca,bcs,bsc","Project Engineer, Turbo roles",["Online test (aptitude, verbal, coding)","Technical interview","HR interview"],"Aptitude, essay writing, basic coding, OOP, DBMS","The written communication section is eliminatory; prepare it."],
+["HCLTech","IT Services","Engineering and IT services; also runs the TechBee early-career program after 12th.","bt,mca,bcs,bsc","Graduate Engineer Trainee, Software Engineer",["Online assessment","Technical interview","HR interview"],"Aptitude, Java/Python, SQL, networking, OS","Strong on infrastructure, embedded and cloud roles as well as software."],
+["Cognizant","IT Services","Large IT services firm with GenC, GenC Next and GenC Elevate hiring tracks.","bt,mca,bcs,bsc","Programmer Analyst Trainee, GenC Elevate",["Online test (aptitude, coding)","Technical interview","HR interview"],"Aptitude, coding, SQL, OOP, communication","GenC Elevate and Next need good coding and a strong CS fundamentals base."],
+["Accenture","IT Services","Global consulting and technology services. Hires associates through campus and off-campus drives.","bt,mca,bcs,bsc","Associate Software Engineer, Advanced App Engineering Analyst",["Cognitive and technical assessment (MCQ, pseudocode)","Coding round","Communication assessment","Technical + HR interview"],"Pseudocode, networking, cloud basics, Python/Java, communication","The communication assessment is spoken; practise speaking clearly."],
+["Capgemini","IT Services","French multinational with large India engineering and consulting teams.","bt,mca,bcs,bsc","Analyst, Senior Analyst (exceller)",["Online assessment (games-based aptitude, pseudocode, coding)","Technical interview","HR interview"],"Pseudocode, SQL, Python/Java, English","Exceller roles add an advanced coding test."],
+["Tech Mahindra","IT Services","Telecom-focused IT services firm.","bt,mca,bcs,bsc","Software Engineer, Associate Engineer",["Online assessment","Technical interview","HR interview"],"Aptitude, basic coding, networking, SQL","Telecom and network knowledge helps."],
+["Google","Product & Big Tech","Search, cloud and Android. Hires strong problem solvers via Software Engineer university grad roles.","bt,mca","Software Engineer, STEP Intern, SRE",["Resume + online coding screen","Phone / video technical screen","4 to 5 onsite or virtual rounds (coding + system thinking)","Hiring committee review"],"DSA (graphs, DP, trees), complexity, problem solving, basic design","Practise explaining your thinking out loud, not just the final code."],
+["Microsoft","Product & Big Tech","Windows, Azure, Office, GitHub. Hires SDEs and interns on campus and off-campus.","bt,mca,bsc","Software Engineer, Intern, Support Engineer",["Online coding test","3 to 4 technical interviews (DSA + design)","As Appropriate (AA) final interview"],"Arrays, strings, trees, DP, OOP, low-level design, projects","The final AA round weighs behaviour and growth mindset."],
+["Amazon","Product & Big Tech","E-commerce, AWS and devices. Strong focus on leadership principles in every round.","bt,mca,bsc","SDE I, SDE Intern, Support Engineer",["Online assessment (2 coding problems + work-style test)","2 to 3 technical interviews","Bar raiser interview"],"DSA, OOP, low-level design, 14 Leadership Principles stories","Prepare STAR-format stories for each leadership principle."],
+["Adobe","Product & Big Tech","Creative and document software. Hires software and also design engineers.","bt,mca","Computer Scientist, Member of Technical Staff",["Online coding test","2 to 3 technical interviews","Hiring manager round"],"DSA, OOP, OS, DBMS, design basics","Know your projects deeply; they ask follow-ups."],
+["Flipkart","Product & Big Tech","Indian e-commerce giant with a heavy engineering focus.","bt,mca","SDE 1, Data Analyst, Intern",["Online coding round","2 to 3 DSA / machine coding rounds","Hiring manager round"],"DSA, machine coding, LLD, DBMS, projects","Machine coding rounds test clean, working code in about 90 minutes."],
+["Zoho","Product & Big Tech","Indian SaaS product company. Known for hiring on skills, not only marks, including from arts and science colleges.","bt,mca,bcs,bsc","Member Technical Staff, Software Developer",["Written aptitude + C programming (no internet)","Advanced programming round (logic problems)","Technical interview","HR interview"],"C programs, pattern problems, logic, data structures, projects","Practise writing full programs on paper or a plain editor."],
+["Atlassian","Product & Big Tech","Jira, Confluence, Trello. Tough but well-paid fresher hiring.","bt,mca","Software Engineer, Intern",["Online coding test","Technical screen","Coding + design + values interviews"],"DSA, system design basics, collaboration, values","Values interviews carry real weight."],
+["Ubisoft","Gaming","French game studio with offices in Pune and Mumbai (Assassin's Creed, Far Cry, Just Dance).","bt,mca,bcs,bsc","Gameplay Programmer, QA Tester, Technical Artist",["Application + portfolio / demo reel review","Technical or programming test","Technical interview","HR interview"],"C++, game loops, Unity/Unreal basics, math (vectors), portfolio","A shipped mini game or GitHub demo outweighs marks."],
+["Electronic Arts (EA)","Gaming","FIFA, Madden, Apex Legends. Studio presence in Hyderabad.","bt,mca","Software Engineer, QA Engineer, Gameplay Engineer",["Online coding assessment","Technical interviews (DSA + C++)","Hiring manager round"],"C++, DSA, OOP, graphics basics, debugging","Write clean C++ and know memory management."],
+["Nazara Technologies","Gaming","Indian gaming and esports group (Kiddopia, Animal Jam, Nodwin).","bt,mca,bcs,bsc","Game Developer, QA, Game Designer, Unity Developer",["Resume shortlisting","Practical assignment (small game or tool)","Technical interview","HR interview"],"Unity, C#, game design, level design, analytics","Bring a playable build and explain your design choices."],
+["Dream Sports","Gaming","Parent of Dream11, a large fantasy sports platform.","bt,mca","Software Engineer, Data Analyst",["Online coding test","2 to 3 technical rounds","Hiring manager and culture round"],"DSA, SQL, system design basics, data handling","High-traffic systems are common interview ground."],
+["Adobe (Design)","Design & UX","Hires UX, product design and creative technologists alongside engineers.","bt,mca,bcs,bsc","Product Designer, UX Designer, Creative Technologist",["Portfolio review","Design exercise or take-home","Portfolio presentation panel","Culture and manager round"],"Design process, user research, Figma, accessibility, case studies","Present 2 to 3 deep case studies, not many shallow ones."],
+["Razorpay","Design & UX","Indian fintech. Builds payments products with a strong design team.","bt,mca,bcs,bsc","Product Designer, Frontend Engineer",["Portfolio screen","Design challenge","Design critique + interview","Final culture round"],"UX writing, design systems, dashboards, Figma, HTML/CSS","Show how your design improved a measurable outcome."],
+["Swiggy","Design & UX","Food delivery platform that hires UI/UX designers and front-end engineers.","bt,mca,bcs,bsc","UX Designer, Visual Designer, SDE",["Portfolio shortlisting","Design task","Panel interview","HR round"],"User flows, wireframes, mobile-first design, usability testing","Mobile app design samples are valued."],
+["Palo Alto Networks","Cybersecurity","Network and cloud security leader with an engineering centre in Bengaluru.","bt,mca","Security Engineer, Software Engineer, Support Engineer",["Online coding / networking test","Technical interviews (networking, security, coding)","Hiring manager round"],"TCP/IP, firewalls, OS internals, Python, cryptography basics","Networking depth matters more than memorising tools."],
+["CrowdStrike","Cybersecurity","Endpoint security and threat intelligence company.","bt,mca","Security Engineer, Threat Analyst, Software Engineer",["Online assessment","Technical interviews (OS, malware, coding)","Team fit round"],"OS internals, Linux, Python/Go, threat hunting, MITRE ATT&CK","Lab practice on TryHackMe or Hack The Box shows real skill."],
+["Cisco","Cybersecurity","Networking and security giant; hires network, security and software engineers.","bt,mca,bsc","Software Engineer, Network Engineer, Security Engineer",["Online coding test","Technical interviews","Hiring manager round"],"Networking (OSI, routing), C/Python, DSA, OS","CCNA knowledge is a plus for network roles."],
+["Quick Heal","Cybersecurity","Indian antivirus and security software company based in Pune.","bt,mca,bcs,bsc","Malware Analyst, Security Researcher, Developer",["Written technical test","Technical interview","HR interview"],"C/C++, OS, networking, malware basics, reverse engineering","Reverse engineering curiosity stands out."],
+["Deloitte (Cyber)","Cybersecurity","Consulting firm with a large cyber risk and SOC practice.","bt,mca,bcs,bsc","SOC Analyst, Cyber Risk Analyst, Pen Tester",["Online aptitude + technical test","Technical interview","HR / partner round"],"Security fundamentals, SIEM, OWASP Top 10, compliance (ISO 27001), networking","Certifications like CEH or Security+ help."]
+];
+const roadmaps={
+"IT Services":"Master aptitude and a language (Java or Python), then SQL and OOP. Build 2 projects and practise English communication.",
+"Product & Big Tech":"Strong DSA (LeetCode medium), CS fundamentals, 2 solid projects, and low-level design basics.",
+"Gaming":"Learn C# + Unity or C++ + Unreal. Ship 2 small games, learn vector maths, and keep a portfolio on itch.io or GitHub.",
+"Design & UX":"Learn Figma, design systems and research basics. Publish 3 case studies with process, not only screens.",
+"Cybersecurity":"Networking, Linux, Python, then hands-on labs (TryHackMe). Aim for CEH, Security+ or eJPT."};
+let cat="",grid=document.getElementById("grid");
+const chips=document.getElementById("chips");
+["All",...C].forEach(c=>{const b=document.createElement("button");b.className="chip"+(c==="All"?" on":"");b.textContent=c;b.onclick=()=>{cat=c==="All"?"":c;[...chips.children].forEach(x=>x.classList.toggle("on",x===b));render()};chips.appendChild(b)});
+function esc(s){return s.replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]))}
+function render(){
+ const q=document.getElementById("q").value.toLowerCase(),d=document.getElementById("deg").value;
+ const list=D.filter(x=>(!cat||x[1]===cat)&&(!d||x[3].split(",").includes(d))&&(!q||x.join(" ").toLowerCase().includes(q)));
+ document.getElementById("count").textContent=list.length+" companies";
+ grid.innerHTML=list.length?"":"<p>No match. Clear the search or choose another degree.</p>";
+ list.forEach(x=>{const b=document.createElement("button");b.className="card";
+  b.innerHTML=`<h3>${esc(x[0])}</h3><div class="tag">${esc(x[1])}</div><p>${esc(x[2])}</p><div class="deg">${x[3].split(",").map(k=>`<i>${T[k]}</i>`).join("")}</div><p class="rd">${x[5].length} rounds · ${esc(x[4].split(",")[0])}</p>`;
+  b.onclick=()=>open(x);grid.appendChild(b)});
+}
+function open(x){
+ document.getElementById("body").innerHTML=`<h2>${esc(x[0])}</h2><div class="tag">${esc(x[1])}</div><p>${esc(x[2])}</p>
+ <h4>Eligible degrees</h4><div class="deg">${x[3].split(",").map(k=>`<i>${T[k]}</i>`).join("")}</div>
+ <h4>Roles for freshers</h4><p>${esc(x[4])}</p>
+ <h4>Hiring process: ${x[5].length} rounds</h4><ol>${x[5].map(r=>`<li>${esc(r)}</li>`).join("")}</ol>
+ <h4>Topics to prepare</h4><p>${esc(x[6])}</p>
+ <h4>Category roadmap</h4><p>${esc(roadmaps[x[1]])}</p>
+ <h4>Tip</h4><p>${esc(x[7])}</p>`;
+ document.getElementById("dlg").showModal();
+}
+document.getElementById("close").onclick=()=>document.getElementById("dlg").close();
+document.getElementById("dlg").addEventListener("click",e=>{if(e.target.id==="dlg")e.target.close()});
+document.getElementById("q").oninput=render;document.getElementById("deg").onchange=render;
+render();
+</script>
+</body>
+</html>
