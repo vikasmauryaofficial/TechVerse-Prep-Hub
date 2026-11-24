@@ -73,9 +73,10 @@ footer b{color:var(--ink)}
 
 <dialog id="dlg"><button class="x" id="close">Close</button><div id="body"></div></dialog>
 
+<script src="more-companies.js"></script>
 <script>
 const T={bt:"B.Tech/BE",mca:"MCA",bcs:"BCS/BCA",bsc:"BSc CS"};
-const C=["IT Services","Product & Big Tech","Gaming","Design & UX","Cybersecurity"];
+const C=["IT Services","Product & Big Tech","Gaming","Design & UX","Cybersecurity",...(window.MORE_CATS||[])];
 const D=[
 // n, cat, about, deg, roles, rounds[], topics, tip
 ["TCS","IT Services","India's largest IT services firm. Hires through the National Qualifier Test (NQT) and campus drives.","bt,mca,bcs,bsc","Assistant System Engineer, Digital, Prime",["NQT online test (aptitude, verbal, reasoning, coding)","Technical interview","Managerial interview","HR interview"],"Aptitude, C/C++/Java/Python basics, SQL, OOP, project discussion","Digital and Prime roles need stronger coding; practise 2 to 3 medium problems."],
@@ -112,6 +113,7 @@ const roadmaps={
 "Gaming":"Learn C# + Unity or C++ + Unreal. Ship 2 small games, learn vector maths, and keep a portfolio on itch.io or GitHub.",
 "Design & UX":"Learn Figma, design systems and research basics. Publish 3 case studies with process, not only screens.",
 "Cybersecurity":"Networking, Linux, Python, then hands-on labs (TryHackMe). Aim for CEH, Security+ or eJPT."};
+D.push(...(window.MORE||[]));Object.assign(roadmaps,window.MORE_ROAD||{});
 let cat="",grid=document.getElementById("grid");
 const chips=document.getElementById("chips");
 ["All",...C].forEach(c=>{const b=document.createElement("button");b.className="chip"+(c==="All"?" on":"");b.textContent=c;b.onclick=()=>{cat=c==="All"?"":c;[...chips.children].forEach(x=>x.classList.toggle("on",x===b));render()};chips.appendChild(b)});
